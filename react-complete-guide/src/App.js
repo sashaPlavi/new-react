@@ -1,11 +1,15 @@
 import React from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
+import Person from "./Person/person";
 
 function App() {
   return (
     <div className="App">
       <h1>good evening ladies and gentlemen !!!</h1>
+      <Person />
+      <Person />
+      <Person />
     </div>
   );
 }
