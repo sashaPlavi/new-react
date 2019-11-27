@@ -9,15 +9,11 @@ const App = props => {
   });
   console.log(statepersons.persons[0].name);
 
-  const swichnameHandler = () => {
+  const swichnameHandler = namee => {
     // console.log("bla");
     if (statepersons.persons[0].name === "Sale") {
       updatepersons({
-        persons: [
-          { name: "Aleksandar" },
-          { name: "Mirjana" },
-          { name: "Miroslav" }
-        ]
+        persons: [{ name: namee }, { name: "Mirjana" }, { name: "Miroslav" }]
       });
     } else {
       updatepersons({
@@ -28,9 +24,20 @@ const App = props => {
   return (
     <div className="App">
       <h1>good evening ladies and gentlemen !!!</h1>
-      <button onClick={swichnameHandler}>swich name</button>
+      <button
+        // pasin data with bind() onClick={swichnameHandler.bind(this, "slavko")}>
+        //pasing data with anonimus function
+        onClick={() => {
+          swichnameHandler("slavko!!");
+        }}
+      >
+        swich name
+      </button>
       <Person name={statepersons.persons[0].name} />
-      <Person name={statepersons.persons[1].name}> my hobi is rasing</Person>
+      <Person click={swichnameHandler} name={statepersons.persons[1].name}>
+        {" "}
+        my hobi is rasing
+      </Person>
       <Person name={statepersons.persons[2].name} />
     </div>
   );
