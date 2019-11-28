@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import "./App.css";
 
-import Person from "./Person/Person";
-import Userinput from "./Person/Userinput";
-import Useroutput from "./Person/Useroutput";
+import Person from "./Person";
+import Userinput from "./Userinput";
+import Useroutput from "./Useroutput";
 
 const App = props => {
   const [statepersons, updatepersons] = useState({

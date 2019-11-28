@@ -1,5 +1,5 @@
 import React from "react";
-import DasPerson from "./desPerson/DasPerson";
+import DasPerson from "./DasPerson/DasPerson";
 
 class Main extends React.Component {
   render() {
