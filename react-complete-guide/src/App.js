@@ -9,9 +9,10 @@ import Useroutput from "./Person/Useroutput";
 const App = props => {
   const [statepersons, updatepersons] = useState({
     persons: [{ name: "Sale" }, { name: "Mirka" }, { name: "Mirko" }],
-    credo: "cogito ergo sum"
+    credo: "cogito ergo sum",
+    showPesron: false
   });
-
+  /*
   const swichnameHandler = namee => {
     // console.log("bla");
     if (statepersons.persons[0].name === "Sale") {
@@ -24,7 +25,25 @@ const App = props => {
       });
     }
   };
+*/
 
+  const togleShowHendler = () => {
+    console.log(statepersons.showPesron);
+
+    if (statepersons.showPesron === true) {
+      updatepersons({
+        persons: [{ name: "Sale" }, { name: "Mirka" }, { name: "Mirko" }],
+        credo: "cogito ergo sum",
+        showPesron: false
+      });
+    } else {
+      updatepersons({
+        persons: [{ name: "Sale" }, { name: "Mirka" }, { name: "Mirko" }],
+        credo: "cogito ergo sum",
+        showPesron: true
+      });
+    }
+  };
   const inputHendler = event => {
     console.log(event.target.value);
 
@@ -43,6 +62,7 @@ const App = props => {
       credo: event.target.value
     });
   };
+
   return (
     <div className="App">
       <h1>good evening ladies and gentlemen !!!</h1>
@@ -50,21 +70,29 @@ const App = props => {
         // pasin data with bind() onClick={swichnameHandler.bind(this, "slavko")}>
         //pasing data with anonimus function
         onClick={() => {
-          swichnameHandler("slavko!!");
+          //this is anomus function so we can call handler
+          // swichnameHandler("slavko!!");
+          togleShowHendler();
         }}
       >
-        swich name
+        show name
       </button>
-      <Person name={statepersons.persons[0].name} />
-      <Person
-        click={swichnameHandler}
-        name={statepersons.persons[1].name}
-        changed={inputHendler}
-      >
-        {" "}
-        my hobi is rasing
-      </Person>
-      <Person name={statepersons.persons[2].name} />
+
+      {statepersons.showPesron ? (
+        // ternary operator display div or null
+        <div>
+          <Person name={statepersons.persons[0].name} />
+          <Person
+            // click={swichnameHandler}
+            name={statepersons.persons[1].name}
+            changed={inputHendler}
+          >
+            {" "}
+            my hobi is rasing
+          </Person>
+          <Person name={statepersons.persons[2].name} />
+        </div>
+      ) : null}
       <Userinput
         input={inputcredoHndler}
         curentstate={statepersons.credo}
@@ -73,6 +101,7 @@ const App = props => {
     </div>
   );
 };
+
 export default App;
 /*
  */
