@@ -59,6 +59,12 @@ class Main extends React.Component {
       });
     }
   };
+  removeCharHand = ind => {
+    let chr = this.state.text.split("");
+    chr.splice(ind, 1);
+    const updchr = chr.join("");
+    this.setState({ text: updchr });
+  };
   render() {
     let persons = null;
 
@@ -84,7 +90,15 @@ class Main extends React.Component {
     console.log(text);
 
     individual = text.map((e, ind) => {
-      return <CharComponent charel={e} key={ind} />;
+      return (
+        <CharComponent
+          charel={e}
+          key={ind}
+          remouve={() => {
+            this.removeCharHand(ind);
+          }}
+        />
+      );
     });
 
     return (
