@@ -50,7 +50,7 @@ class Main extends React.Component {
   changeHandelr = event => {
     let input = event.target.value;
     let num = input.length;
-    console.log(num);
+
     this.setState({ text: input });
 
     if (this.state.input !== num) {
@@ -61,8 +61,6 @@ class Main extends React.Component {
   };
   render() {
     let persons = null;
-
-    console.log(this.state);
 
     if (this.state.wiew.show) {
       persons = (
@@ -80,6 +78,14 @@ class Main extends React.Component {
         </div>
       );
     }
+    let individual = null;
+
+    const text = this.state.text.split("");
+    console.log(text);
+
+    individual = text.map((e, ind) => {
+      return <CharComponent charel={e} key={ind} />;
+    });
 
     return (
       <div className="main">
@@ -88,7 +94,7 @@ class Main extends React.Component {
         {persons}
         <input type="text" onChange={this.changeHandelr} />
         <Validation charlng={this.state.input} />
-        <CharComponent chartxt={this.state.text} />
+        {individual}
       </div>
     );
   }
