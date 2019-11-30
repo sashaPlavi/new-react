@@ -1,8 +1,8 @@
 import React from "react";
-import DasPerson from "./DasPerson/DasPerson";
+import DasPerson from "../components/persons/DasPerson/DasPerson";
 import "./Main.css";
-import Validation from "./DasPerson/Validation";
-import CharComponent from "./DasPerson/charComponent";
+import Validation from "../components/persons/DasPerson/Validation";
+import CharComponent from "../components/persons/DasPerson/charComponent";
 class Main extends React.Component {
   state = {
     persons: [

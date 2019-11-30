@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 //import App from './Person/App';
-import Main from "./newPerson/Main";
+import Main from "./container/Main";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<Main />, document.getElementById("root"));
