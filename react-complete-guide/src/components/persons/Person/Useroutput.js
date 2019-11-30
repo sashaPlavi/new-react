@@ -1,5 +1,5 @@
 import React from "react";
-import "../Person/Useroutput.css";
+import "./Useroutput.css";
 
 const Useroutput = props => {
   console.log(props);

@@ -20,7 +20,7 @@ class Main extends React.Component {
       }
     ],
 
-    wiew: { show: true },
+    wiew: { show: false },
     input: 0,
     text: ""
   };
@@ -66,8 +66,19 @@ class Main extends React.Component {
     this.setState({ text: updchr });
   };
   render() {
+    const style = {
+      backgroundColor: "green",
+      color: "white",
+      border: "none"
+    };
     let persons = null;
-
+    let clases = [];
+    if (this.state.persons.length < 1) {
+      clases.push("red");
+    }
+    if (this.state.persons.length < 2) {
+      clases.push("bold");
+    }
     if (this.state.wiew.show) {
       persons = (
         <div>
@@ -83,6 +94,8 @@ class Main extends React.Component {
           })}
         </div>
       );
+      style.backgroundColor = "red";
+      style.color = "black";
     }
     let individual = null;
 
@@ -103,8 +116,10 @@ class Main extends React.Component {
 
     return (
       <div className="main">
-        <button onClick={this.toglehandel}>show persons</button>
-        <p>good evening</p>
+        <button onClick={this.toglehandel} style={style}>
+          show persons
+        </button>
+        <p className={clases.join(" ")}>good evening</p>
         {persons}
         <input type="text" onChange={this.changeHandelr} />
         <Validation charlng={this.state.input} />
